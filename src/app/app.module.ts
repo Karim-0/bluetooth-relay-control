@@ -7,11 +7,14 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import { BLE } from '@ionic-native/ble/ngx';
+import { DetailPipe } from './detail.pipe';
+
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DetailPipe],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [BLE,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

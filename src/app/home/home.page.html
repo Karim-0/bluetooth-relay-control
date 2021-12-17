@@ -1,20 +1,42 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+
+<ion-header>
+  <ion-toolbar >
+    <ion-title >Relé BLE app</ion-title>
+    
+    <ion-button fill="solid" mode="ios" color="primary" (click)="Scan()" slot="end">
+      <ion-icon name="Bluetooth"></ion-icon>
+      <p>Buscar</p>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="light">
+   
+    <ion-card mode="md">
+      <ion-card-header>
+        <ion-card-subtitle>Dispositivos encontrados, seleccione:</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        
+          <ion-list>
+            
+              <ion-button size="small" expand="block" color="success" ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+                <p>{{ device.name || 'Desconocido' }}</p>
+                <p> - </p>
+                <p>{{ device.id }}</p>
+                
+              </ion-button>
+            
+          </ion-list>
+        
+      </ion-card-content>
+    </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  
 </ion-content>
+
+<ion-footer >
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>

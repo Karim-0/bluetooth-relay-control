@@ -1,0 +1,94 @@
+
+<ion-header >
+  <ion-toolbar >
+    <ion-title >{{ peripheral.name || 'Dispositivo' }}</ion-title>
+    <img slot="end" src="assets/principal.png" height="40px" style="padding-right:5px;" />
+    <ion-back-button  text="" icon="chevron-back-sharp" color="primary"slot="start" defaultHref="home" (click)="bleDisconnect()"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <ion-grid >
+
+    <ion-row  >
+      <ion-col size="12">
+        <ion-card mode="md"  >
+          <ion-card-header>
+              <ion-card-title>Control de relés</ion-card-title>
+              <ion-card-subtitle>Controlar canales:</ion-card-subtitle>
+          </ion-card-header>
+      
+          <ion-card-content >            
+            
+              <ion-list >
+                <ion-item >
+                  <ion-label mode="ios">Canal A</ion-label>
+                  <ion-fab-button size="small" mode="ios" shape="round" 
+                  (pointerdown)="push1A($event)" (pointerup)="push2A($event)" ><ion-icon name="power-sharp"></ion-icon></ion-fab-button>
+                  <ion-toggle  mode="ios" [(ngModel)]="releA" (ionChange)="changedA($event)" checked="false" slot="end" ></ion-toggle>
+                  
+                </ion-item>
+              
+                <ion-item >
+                  <ion-label mode="ios">Canal B</ion-label>
+                  <ion-fab-button size="small" mode="ios" shape="round" 
+                  (pointerdown)="push1B($event)" (pointerup)="push2B($event)" ><ion-icon name="power-sharp"></ion-icon></ion-fab-button>
+                  <ion-toggle mode="ios" [(ngModel)]="releB" (ionChange)="changedB($event)" checked="false" slot="end"></ion-toggle>
+                </ion-item>
+              </ion-list>
+           
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <!-- <ion-row >
+      <ion-col size="12">
+        <ion-card >
+          <ion-card-content>
+            <ion-list>
+              <ion-item>
+                <ion-label>Canal A</ion-label>
+                <ion-button mode="md" shape="round" (click)="changedA($event)" >
+                  
+                </ion-button>
+              </ion-item>
+            
+
+            <ion-item>
+              <ion-label>Canal B</ion-label>
+              <ion-button mode="md" shape="round" (click)="changedB($event)" >
+                
+              </ion-button>
+            </ion-item>
+          </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+
+
+    <ion-row >
+      <ion-col size="12">
+        <ion-card mode="md">
+          <ion-card-content>
+            <a href="https://www.cdtechnologia.net" >Powered by C&D Technología</a>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+  
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p>{{ statusMessage }}</p>
+  </ion-toolbar>
+</ion-footer>
