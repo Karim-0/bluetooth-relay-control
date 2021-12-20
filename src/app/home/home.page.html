@@ -20,7 +20,7 @@
         
           <ion-list>
             
-              <ion-button size="small" expand="block" color="success" ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
+              <ion-button size="small" expand="block" color="secondary" ion-item *ngFor="let device of devices" (click)="deviceSelected(device)">
                 <p>{{ device.name || 'Desconocido' }}</p>
                 <p> - </p>
                 <p>{{ device.id }}</p>
